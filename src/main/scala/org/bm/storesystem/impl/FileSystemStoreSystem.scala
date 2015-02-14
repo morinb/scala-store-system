@@ -1,13 +1,10 @@
 package org.bm.storesystem.impl
 
 import java.io.{IOException, InputStream}
-import java.nio.file.{StandardCopyOption, FileSystems, Files, Path}
+import java.nio.file.{FileSystems, Files, Path, StandardCopyOption}
 import java.security.NoSuchAlgorithmException
 
-import org.apache.lucene.search.ScoreDoc
 import org.bm.storesystem.{Config, HexHashUtils, Indexing, StoreSystem}
-
-import scala.io.Source
 
 /**
  * .
@@ -33,7 +30,7 @@ class FileSystemStoreSystem extends StoreSystem with Indexing with Config with H
   override def store(is: InputStream, filename: String): Option[Path] = {
     val bufferSize = readBufferSize
     try {
-      val firstPart = digest(filename, bufferSize)(hashAlgorithm)
+      val firstPart = digest(filename, bufferSize) /* implicit hashAlgorithm from Config */
       val sb: StringBuilder = new StringBuilder
       while (sb.length < 6) {
         sb += '_'
