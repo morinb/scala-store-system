@@ -18,7 +18,7 @@ object StoreSystemConfigReader {
 
       case None =>
         val props = new Properties()
-        props.load(Source fromFile STORAGE_CONFIG_FILENAME bufferedReader())
+        props.load(Source fromURL getClass.getResource(s"/$STORAGE_CONFIG_FILENAME") bufferedReader())
         properties = Some(props)
         props
 
