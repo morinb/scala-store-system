@@ -4,6 +4,8 @@ version := "0.1"
 
 scalaVersion := "2.11.2"
 
+scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
+
 libraryDependencies ++= Seq(
   "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test",
   "org.apache.lucene" % "lucene-test-framework" % "4.9.0" % "test",

@@ -1,6 +1,6 @@
 package org.bm.storesystem.impl
 
-import java.io.{StringReader, InputStream}
+import java.io.InputStream
 
 import org.bm.storesystem.StoreSystem
 import org.scalatest.FunSuite
@@ -34,18 +34,16 @@ class FileSystemStoreSystemTest extends FunSuite {
   }
 
   test("Serve") {
-
     val system: StoreSystem = StoreSystem()
 
+    println(s"Getting $filename")
     val stream: InputStream = system.serve(filename)
 
     assert(stream !== null)
 
     Source.fromInputStream(stream).getLines().foreach(println)
 
-
     system.close()
-
   }
 
 }

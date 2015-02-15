@@ -1,11 +1,10 @@
 package org.bm.storesystem
 
 import java.io.InputStream
-import java.util.Properties
 import java.nio.file.Path
-import org.bm.storesystem.impl.FileSystemStoreSystem
+import java.util.Properties
 
-import scala.io.Source
+import org.bm.storesystem.impl.FileSystemStoreSystem
 
 /**
  * .
